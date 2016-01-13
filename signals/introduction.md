@@ -1,8 +1,8 @@
 # Introduction to signals
 
-Signals in Elm are one of the basic building blocks for creating applications. You can think of a signal as a stream of values that change over time.
+In Elm, Signals are one of the basic building blocks for creating applications. You can think of a signal as a stream of values that change over time.
 
-Signals in Elm can merged, transformed and filtered as you see fit.
+In Elm, Signals can be merged, transformed and filtered as you see fit.
 
 ![Signal](signal.png)
 
