@@ -45,7 +45,12 @@ To understand how this is accomplished, let us deconstruct the last line of the 
 
 #### Signal.map
 
-`Signal.map` is a function that __converts__ or __maps__ one signal to a different signal. The first argument of map is a function that will receive the values from the source signal and output values of the target signal type. In this case, the `view` function we defined above takes an `Int` value and outputs a value of type `Html.Html`. The second argument to `Signal.map` is the source signal to be transformed.
+`Signal.map` is a function that __converts__ or __maps__ one signal to a different signal.  Its type signature is  `Signal.map : (a -> result) -> Signal a -> Signal result`
+The first argument is a function that receives a value of type `a` and outputs a value of type `result`.  It is used to take values from the source signal and output values of the target signal type.
+The second argument to `Signal.map` is the source signal to be transformed.  It has to be a signal of values of type `a`.
+The output is of type `Signal result`.  That is, it is a signal of values of type `result`.  
+
+In the example above, the `view` function we defined above is used as the transformation or mapping function.  It takes an `Int` value and outputs a value of type `Html.Html`.  The second argument is a signal of `Int` values.  So the output is a signal of `Html.Html` values.   Which is what we want the function `main` to output!.
 
 `Signal.map` returns a new signal with the result of mapping the values of the source signal through the provided transformation function.  As the source signal changes, each new value is transformed into, or mapped to, a value of the target signal type.
 
@@ -67,4 +72,4 @@ doubleSignal =
 
 ### Excersice
 
-Try combining the basic mouse x example above with `doubleSignal` so you see the current `x` multiplied by 2 as you move your mouse.
+Try combining the basic mouse x coordinate example above with `doubleSignal` so you see the current `x` multiplied by 2 as you move your mouse.
